@@ -1,4 +1,4 @@
-self.addEventListener('message', event => {
+self.addEventListener('message', async event => {
   if (event.data && event.data.command === 'active') {
     chrome.storage.local.set({
       value: event.data.page.value,
@@ -6,6 +6,42 @@ self.addEventListener('message', event => {
       id: event.data.page.id,
       authorization: event.data.page.authorization
     });
+  };
+  if (event.data && event.data.command === 'value') {
+    let value = await new Promise((resolve) => {
+      chrome.storage.local.get(['value'], function(result) {
+        resolve(result.value);
+      });
+    });
+
+    event.ports[0].postMessage(value);
+  };
+  if (event.data && event.data.command === 'id') {
+    let id = await new Promise((resolve) => {
+      chrome.storage.local.get(['id'], function(result) {
+        resolve(result.id);
+      });
+    });
+
+    event.ports[0].postMessage(id);
+  };
+  if (event.data && event.data.command === 'authorization') {
+    let authorization = await new Promise((resolve) => {
+      chrome.storage.local.get(['authorization'], function(result) {
+        resolve(result.authorization);
+      });
+    });
+
+    event.ports[0].postMessage(authorization);
+  };
+  if (event.data && event.data.command === 'clientId') {
+    let clientId = await new Promise((resolve) => {
+      chrome.storage.local.get(['clientId'], function(result) {
+        resolve(result.clientId);
+      });
+    });
+
+    event.ports[0].postMessage(clientId);
   };
 });
 
@@ -18,13 +54,13 @@ async function changeColor({ id, authorization, clientId }) {
   };
 
   var randomColor = '%23' + result;
-  var url = `https://api.twitch.tv/helix/chat/color?user_id=${clientId}&color=${randomColor}`;
+  var url = `https://api.twitch.tv/helix/chat/color?user_id=${id}&color=${randomColor}`;
 
   let response = await fetch(url, {
     method: 'PUT',
     headers: {
       'Authorization': "Bearer " + authorization,
-      'Client-Id': id,
+      'Client-Id': clientId,
       'Content-Type': 'application/json'
     }
   });

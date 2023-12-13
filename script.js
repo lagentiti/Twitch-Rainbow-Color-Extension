@@ -1,21 +1,35 @@
 window.onload = function() {
-  if(localStorage.getItem("value") == "1") {
-    document.getElementById('active').checked = true;
+  var messageChannelValue = new MessageChannel();
+  var messageChannelId = new MessageChannel();
+  var messageChannelToken = new MessageChannel();
+  var messageChannelclientId = new MessageChannel();
+
+  navigator.serviceWorker.controller.postMessage({command:"value"}, [messageChannelValue.port2]);
+  navigator.serviceWorker.controller.postMessage({command:"id"}, [messageChannelId.port2]);
+  navigator.serviceWorker.controller.postMessage({command:"authorization"}, [messageChannelToken.port2]);
+  navigator.serviceWorker.controller.postMessage({command:"clientId"}, [messageChannelclientId.port2]);
+
+  
+  messageChannelValue.port1.onmessage = function(event) {
+    if(event.data == "1") {
+      document.getElementById('active').checked = true;
+    };
   };
 
-  if(localStorage.getItem("id") !== null) {
-    document.getElementById("id").value = localStorage.getItem("id");
+  messageChannelId.port1.onmessage = function(event) {
+    document.getElementById("id").value = event.data;
   };
 
-  if(localStorage.getItem("authorization") !== null) {
-    document.getElementById("token").value = localStorage.getItem("authorization");
+  messageChannelToken.port1.onmessage = function(event) {
+    document.getElementById("token").value = event.data;
   };
 
-  if(localStorage.getItem("clientId") !== null) {
-    document.getElementById("clientId").value = localStorage.getItem("clientId");
+  messageChannelclientId.port1.onmessage = function(event) {
+    document.getElementById("clientId").value = event.data;
   };
   
   document.getElementById("submit").addEventListener("click", () => {
+    // Envoi d'un message au service worker
     navigator.serviceWorker.controller.postMessage({
       command: "active", 
       page: {
