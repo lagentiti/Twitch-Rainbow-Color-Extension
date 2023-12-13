@@ -1,14 +1,20 @@
 {
-  "name": "Akaruu v2",
+  "name": "Twitch Rainbow Color",
   "version": "1.0.0",
-  "description": "Akaruu v2",
+  "description": "Twitch Rainbow Color",
   "manifest_version": 3,
   "author": "lagent_titi",
-  "action": {
+  "action":{
     "default_popup": "index.html",
-    "default_title": "Akaruu v2"
+    "default_title": "Twitch Rainbow Color"
   },
-  "permissions": ["notifications","storage", "background"],
+  "icons": {
+    "16": "./icons/icon16.png",
+    "32": "./icons/icon32.png",
+    "48": "./icons/icon48.png",
+    "128": "./icons/icon128.png"
+  },
+  "permissions": ["storage", "background"],
   "background": {
     "service_worker": "background.js"
   }
