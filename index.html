@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Twitch Rainbow Color</title>
-  <script src="./script.js"></script>
+  <script src="./script.js" defer></script>
 </head>
 <body>
   <div style="display: flex;">
@@ -14,24 +14,6 @@
   <input type="text" value="id" id="id">
   <input type="text" value="client id" id="clientId">
   <input type="text" value="token" id="token">
-  <button type="submit" onclick="active();">OK</button>
-
-  <script>
-    if(localStorage.getItem("value") == "1") {
-      document.getElementById('active').checked = true;
-    };
-
-    if(localStorage.getItem("id") !== undefined) {
-      document.getElementById("id").value = localStorage.getItem("id");
-    };
-
-    if(localStorage.getItem("authorization") !== undefined) {
-      document.getElementById("token").value = localStorage.getItem("authorization");
-    };
-
-    if(localStorage.getItem("clientId") !== undefined) {
-      document.getElementById("clientId").value = localStorage.getItem("clientId");
-    };
-  </script>
+  <button type="submit" id="submit">OK</button>
 </body>
 </html>
