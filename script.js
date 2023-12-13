@@ -1,18 +1,32 @@
-function setCookieValue(value) {
-  return localStorage.setItem('value', value);
-};
+window.onload = function() {
+  if(localStorage.getItem("value") == "1") {
+    document.getElementById('active').checked = true;
+  };
 
-function setCookieId(id) {
-  return localStorage.setItem('id', id);
-};
+  if(localStorage.getItem("id") !== null) {
+    document.getElementById("id").value = localStorage.getItem("id");
+  };
 
-function setCookieClientId(clienId) {
-  return localStorage.setItem('clientId', clienId);
-};
+  if(localStorage.getItem("authorization") !== null) {
+    document.getElementById("token").value = localStorage.getItem("authorization");
+  };
 
-function setCookieAuthorization(Authorization) {
-  return localStorage.setItem('authorization', Authorization);
-};
+  if(localStorage.getItem("clientId") !== null) {
+    document.getElementById("clientId").value = localStorage.getItem("clientId");
+  };
+
+  document.getElementById("submit").addEventListener("click", active);
+
+  setInterval(() => {
+    if(localStorage.getItem("value") == "1") {
+      return changeColor({
+        id: localStorage.getItem("id"),
+        authorization: localStorage.getItem("authorization"),
+        clientId: localStorage.getItem("clientId"),
+      });
+    };
+  }, 500);
+}
 
 function changeColor({ id, authorization, clientId }) {
   var xhr = new XMLHttpRequest();
@@ -48,19 +62,8 @@ function active() {
   } else {
     var check = 0;
   };
-  setCookieValue(check);
-  setCookieClientId(document.getElementById('clientId').value);
-  setCookieId(document.getElementById('id').value);
-  setCookieAuthorization(document.getElementById('token').value);
-  return 0;
+  localStorage.setItem('value',  check);
+  localStorage.setItem('clientId', document.getElementById('clientId').value);
+  localStorage.setItem('id', document.getElementById('id').value);
+  localStorage.setItem('authorization', document.getElementById('token').value);
 };
-
-setInterval(() => {
-  if(localStorage.getItem("value") == "1") {
-    return changeColor({
-      id: localStorage.getItem("id"),
-      authorization: localStorage.getItem("authorization"),
-      clientId: localStorage.getItem("clientId"),
-    });
-  };
-}, 500);
