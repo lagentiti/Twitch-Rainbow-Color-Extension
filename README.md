@@ -1,4 +1,4 @@
-# Twitch Rainbow Color Extension
+# Twitch-Username-Rainbow-Color-Extension
 
 ##
 
