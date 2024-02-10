@@ -29,7 +29,6 @@ window.onload = function() {
   };
   
   document.getElementById("submit").addEventListener("click", () => {
-    // Envoi d'un message au service worker
     navigator.serviceWorker.controller.postMessage({
       command: "active", 
       page: {
