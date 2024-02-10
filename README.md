@@ -1,6 +1,6 @@
 # Twitch-Username-Rainbow-Color-Extension
 
-##
+## [download](https://github.com/lagentiti/Twitch-Username-Rainbow-Color-Extension/archive/refs/heads/main.zip)
 
 ## [add extension](https://www.thesslstore.com/blog/install-a-chrome-extension/)
 
