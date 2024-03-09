@@ -1,41 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-65JE4TME6P"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-65JE4TME6P');
-</script>
-  <link rel="manifest" href="/manifest.webmanifest" />
-  <link type="text/plain" rel="author" href="http://lagentiti.github.io/humans.txt" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>lagent_titi</title>
-  <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/123580047?s=48&v=4" type="image/x-icon">
-  <link rel="stylesheet" href="./styles/all.css">
-  <script src="./scripts/index.js"></script>
-  <script src="./scripts/theme.js"></script>
-  <style id="theme"></style>
+  <title>Twitch Rainbow Color</title>
+  <script src="./script.js" defer></script>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <div id="lang"></div>
-  <div id="header"></div>
-  <app>
-    <div id="actus"></div>
-  </app>
-  <div id="footer"></div>
-  <script src="./scripts/import.js"></script>
-  <script>
-    html("header");
-    html("footer");
-  </script>
-  <script src="./scripts/lang.js" defer>
-    lang_index();
-  </script>
-  <script src="./scripts/footer.js" defer></script>
+  <div style="display: flex;">
+    <div id="txt">
+      actif
+    </div>
+    <input type="checkbox" name="active" id="active">
+  </div>
+  <div>
+    <div id="txt">
+      id
+    </div>
+    <input type="text" id="id">
+  </div>
+  <div>
+    <div id="txt">
+      client id
+    </div>
+    <input type="password" id="clientId">
+  </div>
+  <div>
+    <div id="txt">
+      token
+    </div>
+    <input type="password" id="token">
+  </div>
+  <button type="submit" id="submit">
+    <div id="txt">
+      Save
+    </div>
+  </button>
 </body>
 </html>

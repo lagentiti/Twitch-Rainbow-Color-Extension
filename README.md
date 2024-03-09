@@ -1,89 +1,10 @@
-# lagentiti.github.io
+# Twitch-Username-Rainbow-Color-Extension
 
-# < name >.json sample in ./projects/
-```json
-{
-  "name": "",
-  "id": ,
-  "description": "",
-  "picture": {
-    "icon": "", // 120x120px
-    "couverture": "", // 300x425px
-    "videoId": "", // video YouTube Id
-    "galery": [
-      "", // 651x366 px
-    ]
-  },
-  "links": [
-    {
-      "link": "",
-      "name": ""
-    },
-    {
-      "link": "",
-      "name": ""
-    }
-  ]
-}
-```
+## [download](https://github.com/lagentiti/Twitch-Username-Rainbow-Color-Extension/archive/refs/heads/main.zip)
 
-# tutos.json sample
-```json
-...
-{
-  "id": "",
-  "name": "",
-  "description": "",
-  "icon": "",
-  "link": ""
-}
-```
+## [add extension](https://www.thesslstore.com/blog/install-a-chrome-extension/)
 
-# about.json sample
-```json
-...
-"param": {
-  "name": "name",
-  "html": [
-    "<div>",
-    "</div>"
-  ]
-}
-```
 
-# script for html to json html (by bingAI)
-```js
-function textToArray(text) {
-  // Divise le texte en lignes en utilisant le caractère de nouvelle ligne comme séparateur
-  var lines = text.split('\n');
+## [get client id and token](https://token.flens.org/)
 
-  // Crée un nouveau tableau où chaque ligne est un élément
-  var array = lines.map(function(line) {
-      // Ajoute un antislash avant et après chaque guillemet
-      line = line.split('').map(function(char) {
-          if (char === '"') return '\\"';
-          return char;
-      }).join('');
-      return '"' + line + '"';
-  });
-
-  // Retourne le tableau sous forme de chaîne de caractères
-  return '[\n' + array.join(',\n') + '\n]';
-}
-
-// Exemple d'utilisation
-var text = `texte`;
-console.log(textToArray(text));
-```
-
-# actus.json sample
-```json
-...
-{
-  "id": ,
-  "title": "",
-  "description": "",
-  "image": "",
-  "link": ""
-}
-```
+## [get id](https://www.streamweasels.com/tools/convert-twitch-username-to-user-id/#:~:text=Every%20Twitch%20username%20comes%20with,any%20Twitch%20Username%20to%20ID.)
