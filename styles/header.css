@@ -1,0 +1,38 @@
+#header-icon {
+  border-radius: 25px;
+}
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #010409;
+}
+#header-list {
+  display: flex;
+}
+#header-item {
+  margin: 15px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.header-item-link:hover {
+  transition-duration: 0.5s;
+  color: #bf0603;
+}
+#lang {
+  background-color: #bf0603;
+  display: none;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+}
+#buttonLang {
+  background-color: #010409;
+  padding: 15px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+option,
+select {
+  color: black !important;
+}
