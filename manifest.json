@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Twitch Rainbow Color",
   "manifest_version": 3,
-  "author": "lagent_titi",
+  "author": "...",
   "action":{
     "default_popup": "index.html",
     "default_title": "Twitch Rainbow Color"
